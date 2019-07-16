@@ -72,6 +72,7 @@ namespace EmpireBot.Modules
             return ReplyAsync("", false, embed.Build());
         }
 
+        [Command("towns")]
         [Alias("n list", "town list", "towns list", "n all", "town all", "towns all")]
         public Task ShowTowns()
         {

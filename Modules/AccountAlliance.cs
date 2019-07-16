@@ -163,6 +163,7 @@ Please reply with `-accept {ally.ID}` or `-deny {ally.ID}`.");
 
             var entry = DatabaseService.GetAlliancePending(code);
             DatabaseService.AddEntry(entry);
+            DatabaseService.AddEntry(new AllyEntry(entry.BPartyID, entry.APartyID, entry.BPartyDiscordID, entry.APartyDiscordID, entry.BPartyName, entry.APartyName));
             DatabaseService.RemoveEntryPending(entry);
 
             Context.Client.GetUser(ulong.Parse(entry.APartyDiscordID)).GetOrCreateDMChannelAsync().Result

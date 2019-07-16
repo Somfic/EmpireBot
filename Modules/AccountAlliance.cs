@@ -109,11 +109,21 @@ namespace EmpireBot.Modules
                 bDiscordID = nation.LeaderID;
             }
 
+            AllyEntry ally = new AllyEntry(aID, bID, aDiscordID, bDiscordID, nameA, nameB);
+
             //Check if the alliance is already pending.
-            if (DatabaseService.CheckExistancePending(new AllyEntry(aID, bID, "", "", "", "")))
+            if (DatabaseService.CheckExistancePending(ally))
             {
                 Context.Message.AddReactionAsync(new Emoji("❎"));
                 ReplyAsync($"You already have a pending alliance request with *`{name}`*.");
+                return;
+            }
+
+            //Check if the alliance already exists.
+            if (DatabaseService.CheckExistance(ally))
+            {
+                Context.Message.AddReactionAsync(new Emoji("❎"));
+                ReplyAsync($"You already have an alliance with *`{name}`*.");
                 return;
             }
 
@@ -123,8 +133,6 @@ namespace EmpireBot.Modules
                 ReplyAsync($"You're already allied with yourself.");
                 return;
             }
-
-            AllyEntry ally = new AllyEntry(aID, bID, aDiscordID, bDiscordID, nameA, nameB);
 
             Context.Client.GetUser(ulong.Parse(bDiscordID)).GetOrCreateDMChannelAsync().Result.SendMessageAsync($@"***New alliance request***
 

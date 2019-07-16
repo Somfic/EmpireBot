@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmpireBot", "EmpireBot.csproj", "{034AA894-0B2C-4E57-8EB7-841D31762BDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{034AA894-0B2C-4E57-8EB7-841D31762BDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{034AA894-0B2C-4E57-8EB7-841D31762BDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{034AA894-0B2C-4E57-8EB7-841D31762BDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{034AA894-0B2C-4E57-8EB7-841D31762BDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E630F3BB-0AD8-4E64-B5E2-7A76EDD554E1}
+	EndGlobalSection
+EndGlobal

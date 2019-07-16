@@ -12,7 +12,7 @@ namespace EmpireBot.Modules
         public DatabaseService DatabaseService { get; set; }
 
         [Command("ally add")]
-        [Alias("alliance", "request ally", "req ally", "req alliance", "request alliance", "town ally", "town add ally", "t ally", "t add ally", "nation ally", "nation add ally", "n ally", "n add ally")]
+        [Alias("alliance", "ally", "request ally", "req ally", "req alliance", "request alliance", "town ally", "town add ally", "t ally", "t add ally", "nation ally", "nation add ally", "n ally", "n add ally")]
         public Task RequestAlly(string name = null)
         {
             if (name == null)
@@ -207,8 +207,8 @@ We are sorry to inform you that *`{entry.BPartyName}`* has denied the alliance w
             return ReplyAsync($"The alliance has been denied.");
         }
 
-        [Command("ally add")]
-        [Alias("cancel alliance", "delete ally", "del ally", "delete alliance", "del alliance", "town del ally", "town remove ally", "t del ally", "t remove ally", "nation del ally", "nation remove ally", "n del ally", "n remove ally")]
+        [Command("ally remove")]
+        [Alias("cancel alliance", "ally del", "delete ally", "del ally", "delete alliance", "del alliance", "town del ally", "town remove ally", "t del ally", "t remove ally", "nation del ally", "nation remove ally", "n del ally", "n remove ally")]
         public Task RemoveAlly(string name = null)
         {
             if (name == null)
@@ -306,15 +306,17 @@ We are sorry to inform you that *`{entry.BPartyName}`* has denied the alliance w
                 bDiscordID = nation.LeaderID;
             }
 
-            AllyEntry ally = new AllyEntry(aID, bID, aDiscordID, bDiscordID, nameA, nameB);
+            AllyEntry entry = new AllyEntry(aID, bID, aDiscordID, bDiscordID, nameA, nameB);
 
             //Check if the alliance exists.
-            if (!DatabaseService.CheckExistance(ally))
+            if (!DatabaseService.CheckExistance(entry))
             {
                 Context.Message.AddReactionAsync(new Emoji("❎"));
                 ReplyAsync($"You do not have an alliance with *`{name}`*.");
                 return;
             }
+
+            entry = DatabaseService.GetAlliance(aID, bID);
 
             if (aID == bID)
             {
@@ -331,7 +333,8 @@ We are sorry to inform you that *`{entry.BPartyName}`* has denied the alliance w
 Please accept our condolences.
 ");
 
-            DatabaseService.RemoveEntry(ally);
+            DatabaseService.AddEntry(entry);
+            DatabaseService.AddEntry(new AllyEntry(entry.BPartyID, entry.APartyID, entry.BPartyDiscordID, entry.APartyDiscordID, entry.BPartyName, entry.APartyName));
 
             Context.Message.AddReactionAsync(new Emoji("✅"));
             ReplyAsync($"The alliance with *`{name}`* has been terminated. I have informed them as well.");

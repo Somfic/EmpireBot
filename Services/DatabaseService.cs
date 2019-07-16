@@ -277,6 +277,21 @@ namespace EmpireBot.Services
             return null;
         }
 
+        public AllyEntry GetAlliance(string a, string b)
+        {
+            var values = GetValues("alliances");
+
+            foreach (var row in values.Values.Skip(1))
+            {
+                if (row[1].ToString() == a && row[2].ToString() ==b )
+                {
+                    return new AllyEntry(row);
+                }
+            }
+
+            return null;
+        }
+
         public AllyEntry GetAlliancePendingByB(string id)
         {
             var values = GetValues("alliance-pending");

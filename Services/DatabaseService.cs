@@ -302,34 +302,38 @@ namespace EmpireBot.Services
             return null;
         }
 
-        public AllyEntry GetAllianceByA(string id)
+        public List<AllyEntry> GetAlliancesByA(string id)
         {
             var values = GetValues("alliances");
+
+            List<AllyEntry> entries = new List<AllyEntry>();
 
             foreach (var row in values.Values)
             {
                 if (row[1].ToString() == id)
                 {
-                    return new AllyEntry(row);
+                    entries.Add(new AllyEntry(row));
                 }
             }
 
-            return null;
+            return entries;
         }
 
-        public AllyEntry GetAllianceByB(string id)
+        public List<AllyEntry> GetAlliancesByB(string id)
         {
             var values = GetValues("alliances");
+
+            List<AllyEntry> entries = new List<AllyEntry>();
 
             foreach (var row in values.Values)
             {
                 if (row[2].ToString() == id)
                 {
-                    return new AllyEntry(row);
+                    entries.Add(new AllyEntry(row));
                 }
             }
 
-            return null;
+            return entries;
         }
 
         public UserAccount GetUserByID(ulong id)

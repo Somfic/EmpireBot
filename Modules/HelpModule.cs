@@ -14,6 +14,7 @@ namespace EmpireBot.Modules
         {
             return ReplyAsync("", false, new Discord.EmbedBuilder()
                 .AddField("-help", "Displays this message.", true)
+                .AddField("-server", "Displays information about the server.", true)
                 .AddField("-register", "Registers an account and enables you to create towns and nations.", true)
                 .AddField("-register town <name>", "Registers a new town.", true)
                 .AddField("-register nation <nation>", "Registers a new nation. You must have a town before registering a nation.", true)

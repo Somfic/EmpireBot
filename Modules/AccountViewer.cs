@@ -42,7 +42,7 @@ namespace EmpireBot.Modules
                         var nation = DatabaseService.GetNationByLeaderID(Context.Message.Author.Id.ToString());
 
                         string allyList2 = "";
-                        var allies2 = DatabaseService.GetAlliancesByA(town.ID);
+                        var allies2 = DatabaseService.GetAlliancesByA(town.NationID);
                         if (allies2.Count == 0) { allyList2 = "No allies."; }
                         else { allies2.ForEach(x => allyList2 += FirstLetterToUpper(x.BPartyName) + Environment.NewLine); }
 

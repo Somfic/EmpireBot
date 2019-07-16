@@ -32,7 +32,7 @@ namespace EmpireBot.Modules
         }
 
         [Command("register town")]
-        [Alias("reg town", "register t", "reg t", "town register", "town reg", "t reg", "t register")]
+        [Alias("reg town", "register t", "reg t", "town register", "town reg", "t reg", "t register", "town new", "t new")]
         public Task RegisterTown(string name = null)
         {
             if (name == null)
@@ -75,7 +75,7 @@ namespace EmpireBot.Modules
         }
 
         [Command("register nation")]
-        [Alias("reg nation", "register n", "reg n", "nation register", "nation reg", "n register", "n reg")]
+        [Alias("reg nation", "register n", "reg n", "nation register", "nation reg", "n register", "n reg", "nation new", "n new")]
         public Task RegisterNation(string name = null)
         {
             if (name == null)

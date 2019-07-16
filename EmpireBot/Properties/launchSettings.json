@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "EmpireBot": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "Key": "Value",
+        "token": "NjAwMzg2MzAxMjI4ODc1Nzc3.XSy_4A.Q6pk4sP8Ow5dvdy9VW0Xf8xr3fA"
+      }
+    }
+  }
+}

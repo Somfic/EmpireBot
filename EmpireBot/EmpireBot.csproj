@@ -6,7 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ConsoleTableExt" Version="2.0.2" />
     <PackageReference Include="Discord.Net" Version="2.1.1" />
+    <PackageReference Include="Google.Apis" Version="1.40.2" />
+    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.40.2.1649" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="client.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

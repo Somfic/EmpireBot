@@ -62,7 +62,7 @@ namespace EmpireBot.Modules
                 else
                 {
                     Context.Message.AddReactionAsync(new Emoji("❎"));
-                    ReplyAsync("You do not have a town or nation. Create a town by doing `!town register`.");
+                    ReplyAsync("You do not have a town or nation. Create a town by doing `-town register`.");
                     return;
                 }
             }
@@ -139,7 +139,7 @@ namespace EmpireBot.Modules
 *Greetings,*
 
 *`{FirstLetterToUpper(nameA)}`* has requested an alliance with *`{nameB}`*.
-Please reply with `!accept {ally.ID}` or `!deny {ally.ID}`.");
+Please reply with `-accept {ally.ID}` or `-deny {ally.ID}`.");
 
             DatabaseService.AddEntryPending(ally);
 

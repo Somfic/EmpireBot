@@ -51,7 +51,7 @@ namespace EmpireBot.Services
             // Perform prefix check. You may want to replace this with
             // (!message.HasCharPrefix('!', ref argPos))
             // for a more traditional command format like !help.
-            if (!message.HasCharPrefix('!', ref argPos))
+            if (!message.HasCharPrefix('-', ref argPos))
             {
                 return;
             }

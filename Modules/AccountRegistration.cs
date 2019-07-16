@@ -23,11 +23,11 @@ namespace EmpireBot.Modules
             if (DatabaseService.CheckExistance(account) == DatabaseService.UserExistance.DoesntExist) { 
                 DatabaseService.AddEntry(account);
                 Context.Message.AddReactionAsync(new Emoji("✅"));
-                return ReplyAsync("Your account has been set up. Use `!account` to access your account.");
+                return ReplyAsync("Your account has been set up. Use `-account` to access your account.");
             } else
             {
                 Context.Message.AddReactionAsync(new Emoji("❎"));
-                return ReplyAsync("You already have an account. Use `!account` to access your account.");
+                return ReplyAsync("You already have an account. Use `-account` to access your account.");
             }
         }
 
@@ -44,7 +44,7 @@ namespace EmpireBot.Modules
             if(DatabaseService.CheckExistance(userAccount) == DatabaseService.UserExistance.DoesntExist)
             {
                 Context.Message.AddReactionAsync(new Emoji("❎"));
-                return ReplyAsync("Please create an account first by using `!register`.");
+                return ReplyAsync("Please create an account first by using `-register`.");
             }
             userAccount = DatabaseService.GetUserByID(Context.Message.Author.Id);
 
@@ -58,12 +58,12 @@ namespace EmpireBot.Modules
             {
                 DatabaseService.AddEntry(account);
                 Context.Message.AddReactionAsync(new Emoji("✅"));
-                return ReplyAsync("Your town has been registered. Use `!town` to access your town.");
+                return ReplyAsync("Your town has been registered. Use `-town` to access your town.");
             } 
             else if(response == DatabaseService.TownExistance.LeaderAlreadyHasTown)
             {
                 Context.Message.AddReactionAsync(new Emoji("❎"));
-                return ReplyAsync("You already have a town registered. Use `!town` to access your town.");
+                return ReplyAsync("You already have a town registered. Use `-town` to access your town.");
             }
             else if (response == DatabaseService.TownExistance.NameInUse)
             {
@@ -87,7 +87,7 @@ namespace EmpireBot.Modules
             if (DatabaseService.CheckExistance(userAccount) == DatabaseService.UserExistance.DoesntExist)
             {
                 Context.Message.AddReactionAsync(new Emoji("❎"));
-                return ReplyAsync("Please create an account first by using `!register`.");
+                return ReplyAsync("Please create an account first by using `-register`.");
             }
 
             NationAccount account = new NationAccount(name, Context.Message.Author.Id);
@@ -98,12 +98,12 @@ namespace EmpireBot.Modules
             {
                 DatabaseService.AddEntry(account);
                 Context.Message.AddReactionAsync(new Emoji("✅"));
-                return ReplyAsync("Your nation has been registered. Use `!nation` to access your nation.");
+                return ReplyAsync("Your nation has been registered. Use `-nation` to access your nation.");
             }
             else if (response == DatabaseService.NationExistance.LeaderAlreadyHasNation)
             {
                 Context.Message.AddReactionAsync(new Emoji("❎"));
-                return ReplyAsync("You already have a nation registered. Use `!nation` to access your nation.");
+                return ReplyAsync("You already have a nation registered. Use `-nation` to access your nation.");
             }
             else if (response == DatabaseService.NationExistance.NameInUse)
             {

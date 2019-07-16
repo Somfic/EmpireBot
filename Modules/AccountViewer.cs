@@ -5,7 +5,7 @@ using System.Text;
 
 namespace EmpireBot.Modules
 {
-    class AccountViewer : ModuleBase<SocketCommandContext>
+    public class AccountViewer : ModuleBase<SocketCommandContext>
     {
     }
 }

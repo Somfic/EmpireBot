@@ -21,6 +21,8 @@ namespace EmpireBot.Modules
                 .AddField("-ally add <town/nation>", "Sends a alliance request to another town or nation.", true)
                 .AddField("-ally remove <town/nation>", "Cancels an alliance with another town or nation.", true)
                 .AddField("-account", "Displays all information about you.", true)
+                .AddField("-towns", "Displays all towns and their leaders.", true)
+                .AddField("-nations", "Displays all nations and their leaders.", true)
                 .Build());
         }
     }

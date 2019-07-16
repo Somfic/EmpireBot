@@ -277,6 +277,27 @@ namespace EmpireBot.Services
             return null;
         }
 
+        public List<NationAccount> GetNations()
+        {
+            var result = new List<NationAccount>();
+            var values = GetValues("nations");
+            foreach (var row in values.Values.Skip(1))
+            {
+                result.Add(new NationAccount(row));
+            }
+            return result;
+        }
+        public List<TownAccount> GetTowns()
+        {
+            var result = new List<TownAccount>();
+            var values = GetValues("towns");
+            foreach (var row in values.Values.Skip(1))
+            {
+                result.Add(new TownAccount(row));
+            }
+            return result;
+        }
+
         public AllyEntry GetAlliance(string a, string b)
         {
             var values = GetValues("alliances");

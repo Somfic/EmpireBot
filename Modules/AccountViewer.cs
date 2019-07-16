@@ -61,6 +61,27 @@ namespace EmpireBot.Modules
             return Task.CompletedTask;
         }
 
+        [Command("nations")]
+        [Alias("n list", "nation list", "nations list", "n all", "nation all", "nations all")]
+        public Task ShowNations()
+        {
+            EmbedBuilder embed = new EmbedBuilder();
+
+            DatabaseService.GetNations().ForEach(x => embed.AddField(x.Name, Context.Client.GetUser(ulong.Parse(x.LeaderID)).Mention, true));
+
+            return ReplyAsync("", false, embed.Build());
+        }
+
+        [Alias("n list", "town list", "towns list", "n all", "town all", "towns all")]
+        public Task ShowTowns()
+        {
+            EmbedBuilder embed = new EmbedBuilder();
+
+            DatabaseService.GetTowns().ForEach(x => embed.AddField(x.Name, Context.Client.GetUser(ulong.Parse(x.LeaderID)).Mention, true));
+
+            return ReplyAsync("", false, embed.Build());
+        }
+
         public string FirstLetterToUpper(string str)
         {
             if (str == null)

@@ -35,7 +35,7 @@ namespace EmpireBot.Modules
                     else { allies.ForEach(x => allyList += x.BPartyName + Environment.NewLine); }
 
                     meEmbed.AddField("Town", $"Name: **{town.Name}**", true);
-                    townEmbed.AddField(town.Name + "(allies)", allyList);
+                    townEmbed.AddField("The town of " + town.Name + " (allies)", allyList);
 
                     if (!string.IsNullOrEmpty(town.NationID))
                     {
@@ -47,7 +47,7 @@ namespace EmpireBot.Modules
                         else { allies2.ForEach(x => allyList2 += x.BPartyName + Environment.NewLine); }
 
                         meEmbed.AddField("Nation", $"Name: **{nation.Name}**", true);
-                        townEmbed.AddField(nation.Name + "(allies)", allyList2);
+                        townEmbed.AddField("The nation of " + nation.Name + " (allies)", allyList2);
                     }
                 }
             } else
@@ -55,8 +55,9 @@ namespace EmpireBot.Modules
                 meEmbed.AddField("No account found!", "Register an account by doing `-register`.");
             }
 
-            ReplyAsync("", false, meEmbed.Build());
-            if(townEmbed.Fields.Count != 0) { ReplyAsync("", false, townEmbed.Build()); }
+            ReplyAsync("", false, meEmbed.Build()).Wait();
+            if(townEmbed.Fields.Count != 0) { ReplyAsync("", false, townEmbed.Build()).Wait(); }
+            if (nationEmbed.Fields.Count != 0) { ReplyAsync("", false, nationEmbed.Build()).Wait(); }
             return Task.CompletedTask;
         }
     }

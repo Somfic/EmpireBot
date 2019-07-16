@@ -92,6 +92,10 @@ namespace EmpireBot.Modules
 
             NationAccount account = new NationAccount(name, Context.Message.Author.Id);
 
+            TownAccount town = DatabaseService.GetTownByLeaderID(Context.Message.Author.Id.ToString());
+            town.NationID = account.ID;
+            DatabaseService.UpdateEntry(town);
+
             var response = DatabaseService.CheckExistance(account);
 
             if (response == DatabaseService.NationExistance.DoesntExist)

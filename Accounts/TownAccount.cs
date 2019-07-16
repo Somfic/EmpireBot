@@ -25,7 +25,7 @@ namespace EmpireBot.Accounts
         public string ID { get; private set; }
         public string Name { get; private set; }
         public string LeaderID { get; private set; }
-        public string NationID { get; private set; }
+        public string NationID { get; set; }
 
         public List<object> List => new List<object>() { ID, Name, LeaderID, NationID };
     }

@@ -35,7 +35,7 @@ namespace EmpireBot.Modules
                     else { allies.ForEach(x => allyList += x.BPartyName + Environment.NewLine); }
 
                     meEmbed.AddField("Town", $"Name: **{town.Name}**", true);
-                    townEmbed.AddField("The town of " + town.Name, allyList);
+                    townEmbed.AddField("The town of " + FirstLetterToUpper(town.Name) + " - *allies*", allyList);
 
                     if (!string.IsNullOrEmpty(town.NationID))
                     {
@@ -47,7 +47,7 @@ namespace EmpireBot.Modules
                         else { allies2.ForEach(x => allyList2 += FirstLetterToUpper(x.BPartyName) + Environment.NewLine); }
 
                         meEmbed.AddField("Nation", $"Name: **{nation.Name}**", true);
-                        nationEmbed.AddField("The nation of " + nation.Name, allyList2);
+                        nationEmbed.AddField("The nation of " + nation.Name + " - *allies*", allyList2);
                     }
                 }
             } else

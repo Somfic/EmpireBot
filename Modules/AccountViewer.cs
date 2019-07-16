@@ -44,7 +44,7 @@ namespace EmpireBot.Modules
                         string allyList2 = "";
                         var allies2 = DatabaseService.GetAlliancesByA(town.ID);
                         if (allies2.Count == 0) { allyList2 = "No allies."; }
-                        else { allies2.ForEach(x => allyList2 += x.BPartyName + Environment.NewLine); }
+                        else { allies2.ForEach(x => allyList2 += FirstLetterToUpper(x.BPartyName) + Environment.NewLine); }
 
                         meEmbed.AddField("Nation", $"Name: **{nation.Name}**", true);
                         nationEmbed.AddField("The nation of " + nation.Name, allyList2);
@@ -59,6 +59,17 @@ namespace EmpireBot.Modules
             if(townEmbed.Fields.Count != 0) { ReplyAsync("", false, townEmbed.Build()).Wait(); }
             if (nationEmbed.Fields.Count != 0) { ReplyAsync("", false, nationEmbed.Build()).Wait(); }
             return Task.CompletedTask;
+        }
+
+        public string FirstLetterToUpper(string str)
+        {
+            if (str == null)
+                return null;
+
+            if (str.Length > 1)
+                return char.ToUpper(str[0]) + str.Substring(1);
+
+            return str.ToUpper();
         }
     }
 }

@@ -196,6 +196,11 @@ namespace EmpireBot.Services
             RemoveEntry("alliance-pending", entry.List);
         }
 
+        public void RemoveEntry(AllyEntry entry)
+        {
+            RemoveEntry("alliances", entry.List);
+        }
+
         private void AddEntry(string SpreadSheet, List<object> objectArray)
         {
             string range = $"{SpreadSheet}!A:Z";

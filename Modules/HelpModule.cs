@@ -18,7 +18,8 @@ namespace EmpireBot.Modules
                 .AddField("-register", "Registers an account and enables you to create towns and nations.", true)
                 .AddField("-register town <name>", "Registers a new town.", true)
                 .AddField("-register nation <nation>", "Registers a new nation. You must have a town before registering a nation.", true)
-                .AddField("-ally <town/nation>", "Sends a alliance request to another town or nation.", true)
+                .AddField("-ally add <town/nation>", "Sends a alliance request to another town or nation.", true)
+                .AddField("-ally remove <town/nation>", "Cancels an alliance with another town or nation.", true)
                 .AddField("-account", "Displays all information about you.", true)
                 .Build());
         }
